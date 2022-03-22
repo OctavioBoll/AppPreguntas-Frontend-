@@ -15,7 +15,7 @@
                 <div class="card-body" *ngIf="errorMessage === ''">
                     <form [formGroup]="loginForm">
                         <div class="loginName">
-                            <label for="staticName" class="text">Name: (No Requerido)</label>
+                            <label for="staticName" class="text">Name:</label>
                             <input type="text" class="form-control" placeholder="ingrese su name" formControlName="name"
                                 name="name" [ngClass]="{'is-invalid': (loginForm.controls.name.touched || submitted)  
                                 && loginForm.controls.name.errors && loginForm.get('name').invalid}">

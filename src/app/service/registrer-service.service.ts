@@ -15,7 +15,7 @@ export class RegistrerServiceService {
     private _snackBar:MatSnackBar) { }
 
   registrer(user):Observable<any>{
-    return this.http.post('http://localhost:3000/api/auth/registrar',user).pipe(catchError(this.errorHandler))
+    return this.http.post('https://servidor-nodejs-app-preguntas.herokuapp.com/api/auth/registrar',user).pipe(catchError(this.errorHandler))
   }
 
 

@@ -70,24 +70,7 @@ export class TopicComponent implements OnInit {
 
 
 
-  //Form y arrayForms bien echo
-
-
-  /**
-   initForms(){
-    this.formTopic = this.fbTopic.group({
-      topic: [''],
-      questions: this.fbTopic.array([
-        title: [''],
-        descripcion: ['']
-      ])
-    })
-  }
-
-
-   */
-
-
+  //Form y arrayForms ultimo
 
   initFormTopic() {
     this.formTopic = this.fbTopic.group({
@@ -127,34 +110,6 @@ export class TopicComponent implements OnInit {
 
   //____________________________________________________________________//
 
-  /**
-   
-  
-  //Inicio de los Forms
-    iniciarForms(){
-      this.topicForm = this.fbTopic.group({
-        topic:[''],
-        questions: this.fbTopic.group({
-          title:[''],
-          descripcion:['']
-        })
-      })
-  
-      this.questForm = this.fbTopic.group({
-        _id:[''],
-        title:[''],
-        descripcion:['']
-      })
-    }
-  
-  
-  
-   */
-
-
-
-
-
 
   //----------------------------- TOPICS----------------------------------
 
@@ -163,7 +118,7 @@ export class TopicComponent implements OnInit {
     this.loading = true
     this._topicService.getTopics().subscribe(data => {
       this.topics.data = data['topics']
-      console.log("Obtener Topics DEVUELVE")
+      
       this.loading = false;
     },
       error => {
@@ -178,19 +133,13 @@ export class TopicComponent implements OnInit {
       })
   }
 
-  //   this._snackBar.open("Error al Logearse:",null,{
-  //     duration:5000,
-  //     horizontalPosition:'center',
-  //     verticalPosition:'top'
-  //   })
-  // this.loading = false;
 
   openCreateTopic(contentCreateTopic) {
     this.initFormTopic()
     this.openTemplate(contentCreateTopic)
   }
 
-
+ // Guardar datos
   guardarTopic() {
     this.loading = true
     this.modalService.dismissAll()
@@ -210,6 +159,7 @@ export class TopicComponent implements OnInit {
       })
   }
 
+  //Eliminar datos
   deleteTopic(topic) {
     this.loading = true
     this._topicService.deleteTopic(topic._id).subscribe(data => {
@@ -280,9 +230,6 @@ export class TopicComponent implements OnInit {
 
     this.updateTopic("agrego")
     
-    // 
-    // console.log("OPENTOPIC: " + this.listTopicSelect[0])
-    // this.openTopic(this.listTopicSelect[0])
   }
 
 
@@ -324,22 +271,9 @@ export class TopicComponent implements OnInit {
   }
 
   eliminarQuestion(item) {
-    console.log("_______eliminar: item_______________")
-    console.log(item)
-
-
     for (let i = 0; i < this.questions.length; i++) {
-      console.log("________eliminar: this.questions_________________")
-      console.log(this.questions[i]._id)
-      console.log("_________eliminar: item.id___________________________")
-      console.log(item._id)
       if (this.questions[i]._id == item._id && typeof item._id !== "undefined") {
-        console.log("____if: quest.id = item.id____ antes del splice_________")
-        console.log(this.questions)
-
         this.questions.splice(i, 1)
-        console.log("_____if: quest.id = item.id_______ despoues del splice_________")
-        console.log(this.questions)
       }
     }
 
@@ -467,10 +401,10 @@ export class TopicComponent implements OnInit {
     
   
     eliminarQuestion(item){
-      console.log(item)
+      
       for (let i = 0; i < this.questions.length; i++) {
         if (this.questions[i]._id == item._id) {
-          console.log(this.questions[i])
+          
           this.questions.splice(i,1)
         }
       }

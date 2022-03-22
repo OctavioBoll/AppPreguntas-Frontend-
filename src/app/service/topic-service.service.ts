@@ -9,14 +9,14 @@ import { throwError as observableThrowError } from 'rxjs';
 })
 export class TopicServiceService {
 
-  private myAppUrl = 'http://localhost:3000/';
+  private myAppUrl = 'https://servidor-nodejs-app-preguntas.herokuapp.com/';
   private myApiUrl = 'api/topics/';
 
   constructor(private http: HttpClient) { }
 
 
   getTopics(): Observable<any>{
-    return this.http.get('http://localhost:3000/api/getTopicos').pipe(catchError(this.errorHandler))
+    return this.http.get('https://servidor-nodejs-app-preguntas.herokuapp.com/api/getTopicos').pipe(catchError(this.errorHandler))
   }
 
   getTopicByUser(id:String): Observable<any>{

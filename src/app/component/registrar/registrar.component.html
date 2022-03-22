@@ -7,7 +7,7 @@
                 <div class="card-body">
                 <form [formGroup]="registrarForm">
                     <div class="registrarName">
-                        <label for="staticName" class="text">Name: (No Requerido)</label>
+                        <label for="staticName" class="text">Name:</label>
                         <input type="text" class="form-control" placeholder="ingrese su name" formControlName="name" 
                         name="name" minlength="1" [ngClass]="{'is-invalid': (registrarForm.controls.name.touched || submitted)  
                         && registrarForm.controls.name.errors && registrarForm.get('name').invalid}">

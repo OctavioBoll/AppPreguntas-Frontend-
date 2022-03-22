@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 export class RegistrarComponent implements OnInit {
 
   registrarForm = new FormGroup({
-    name: new FormControl(''),
+    name: new FormControl('',Validators.required),
     email: new FormControl('',[Validators.required ,Validators.email]),
     pass: new FormControl('',Validators.required)
   })

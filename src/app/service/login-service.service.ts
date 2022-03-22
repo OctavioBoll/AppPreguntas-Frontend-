@@ -16,7 +16,7 @@ export class LoginServiceService {
               private _cookieService:CookieService) { }
 
   login(user):Observable<any>{
-    return this.http.post('http://localhost:3000/api/auth/login',user)
+    return this.http.post('https://servidor-nodejs-app-preguntas.herokuapp.com/api/auth/login',user)
                     .pipe(catchError(this.errorHandler))
 
   }
