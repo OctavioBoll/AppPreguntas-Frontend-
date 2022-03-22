@@ -1,0 +1,9 @@
+.card{
+    background-color: rgba(23, 147, 147, 0.18);
+    display: flex;
+    
+}
+
+.spinner{
+    margin: 0 auto;
+}

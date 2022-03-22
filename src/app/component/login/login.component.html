@@ -1,0 +1,49 @@
+<div class="container d-flex justify-content-center ">
+    <div class="row mt-5">
+
+        <!-- 
+            [ngClass]="{'is-invalid': (formTopic.controls.topic.touched || submitted)  
+                        && formTopic.controls.topic.errors && formTopic.get('topic').invalid}"
+        
+        style="width: 400px; height: 350px;" 
+                    -->
+        
+        <div class="col-12">
+            <mat-spinner class="spinner" diameter:50 *ngIf="loading"></mat-spinner>
+            <div class="card " *ngIf="!loading">
+                <h2 class="text-center mt-2">Login</h2>
+                <div class="card-body" *ngIf="errorMessage === ''">
+                    <form [formGroup]="loginForm">
+                        <div class="loginName">
+                            <label for="staticName" class="text">Name: (No Requerido)</label>
+                            <input type="text" class="form-control" placeholder="ingrese su name" formControlName="name"
+                                name="name" [ngClass]="{'is-invalid': (loginForm.controls.name.touched || submitted)  
+                                && loginForm.controls.name.errors && loginForm.get('name').invalid}">
+                        </div>
+                        <div class="loginEmail">
+                            <label for="staticEmail" class="text">Email:</label>
+                            <input type="text" class="form-control" placeholder="ingrese su email"
+                                formControlName="email" name="email" [ngClass]="{'is-invalid': (loginForm.controls.email.touched || submitted)  
+                                && loginForm.controls.email.errors && loginForm.get('email').invalid}">
+                        </div>
+                        <div class="loginPass">
+                            <label for="staticpass" class="text">Password:</label>
+                            <input type="password" class="form-control" placeholder="ingrese su password"
+                                formControlName="pass" name="pass" minlength="6" [ngClass]="{'is-invalid': (loginForm.controls.pass.touched || submitted)  
+                                && loginForm.controls.pass.errors && loginForm.get('pass').invalid}">
+                            <label class="text-danger" *ngIf="loginForm.get('pass').invalid">*La contraseña debe de tener 6 caracteres como minimo</label>
+                        </div>
+                        <div class="m-2">
+                            <button class="btn btn-primary" [disabled]="loginForm.invalid" (click)="btnLogin()">Login</button>
+                        </div>
+                    </form>
+
+                </div>
+                <div *ngIf="errorMessage != ''">
+                    <p class="text-danger">{{errorMessage}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

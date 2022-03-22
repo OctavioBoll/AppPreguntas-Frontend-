@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-color:rgba(72, 178, 230, 0.43);
+}
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.red-snack-bar{
+    
+    background: brown;
+}
+
+.green-snack-bar{
+    background: rgb(42, 165, 97);
+}

@@ -1,0 +1,42 @@
+<div class="container d-flex justify-content-center">
+    <div class="row mt-5">
+        <div class="col-12">
+            <mat-spinner class="spinner" diameter:50 *ngIf="loading"></mat-spinner>
+            <div class="card" *ngIf="!loading">
+                <h2 class="text-center mt-2">Registrar</h2>
+                <div class="card-body">
+                <form [formGroup]="registrarForm">
+                    <div class="registrarName">
+                        <label for="staticName" class="text">Name: (No Requerido)</label>
+                        <input type="text" class="form-control" placeholder="ingrese su name" formControlName="name" 
+                        name="name" minlength="1" [ngClass]="{'is-invalid': (registrarForm.controls.name.touched || submitted)  
+                        && registrarForm.controls.name.errors && registrarForm.get('name').invalid}">
+                    </div>
+                    <div class="registrarEmail">
+                        <label for="staticEmail" class="text">Email:</label>
+                        <input type="text" class="form-control" placeholder="ingrese su email" formControlName="email" 
+                        name="email"  minlength="1" [ngClass]="{'is-invalid': (registrarForm.controls.email.touched || submitted)  
+                        && registrarForm.controls.email.errors && registrarForm.get('email').invalid}">
+                    </div>
+                    <div class="registrarPass">
+                        <label for="staticpass" class="text">Password:</label>
+                        <input type="password" class="form-control" placeholder="ingrese su password" formControlName="pass" 
+                        name="pass" minlength="6" [ngClass]="{'is-invalid': (registrarForm.controls.pass.touched || submitted)  
+                        && registrarForm.controls.pass.errors && registrarForm.get('pass').invalid}">
+                        <label class="text-danger" *ngIf="registrarForm.get('pass').invalid">*La contraseña debe de tener 6 caracteres como minimo</label>
+                    </div>
+                    <div class="m-2">
+                        <button class="btn btn-primary" [disabled]="registrarForm.invalid" (click)="btnRegistrar()">Registrar</button>
+                    </div>
+                </form>
+                    
+                    
+                </div>
+            </div>
+            <div *ngIf="errorMessage != ''">
+                <p class="text-danger">{{errorMessage}}</p>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AppPreguntas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="container">
+        <div class="row">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/inicio" href="#">Inicio</a>
+              </li>
+              <li class="nav-item" *ngIf="onCheckUser()">
+                <a class="nav-link"  routerLink="/topic" href="#">Topic</a>
+              </li>
+              <li class="nav-item" *ngIf="!onCheckUser()">
+                <a class="nav-link" routerLink="/login" href="#">Login</a>
+              </li>
+              <li class="nav-item" *ngIf="!onCheckUser()">
+                <a class="nav-link" routerLink="/registrar" href="#">Registrar</a>
+              </li>
+              <li  class="nav-item" *ngIf="onCheckUser()">
+                <button class="btn" style="background-color: #ff7a7acc;" (click)="logout()" >logOut</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>    
+    </div>
+  </nav>

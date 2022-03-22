@@ -1,0 +1,69 @@
+.itemsTopics{
+    background-color: cornflowerblue;
+    
+}
+
+.itemsQuest{
+    background-color: rgb(179, 118, 236);
+
+}
+
+.btnCrearTopic{
+    background-color: rgb(5, 187, 76);
+    border:1px solid;
+    border-radius: 20px;
+
+}
+
+.spinner{
+    margin: 10% auto;
+}
+
+
+.btnVerRespuesta{
+    background-color:cornflowerblue;
+    border:1px solid;
+    border-radius: 20px;
+
+}
+
+
+
+.btnRandom{
+    background-color:rgb(104, 187, 109);
+    border:1px solid;
+    border-radius: 20px;
+}
+
+.btnCreateQuest{
+    background-color: rgb(5, 187, 76);
+    border:1px solid;
+    border-radius: 20px;
+}
+
+.btnVolver{
+    background-color: #949ce3;
+    border:1px solid;
+    border-radius: 20px;
+}
+
+.table{
+    margin-top: 5px;
+    border:1px solid;
+    border-radius: 50px;
+    
+}
+
+li{
+    list-style:none;
+    border:1px solid;
+    border-radius: 20px;
+    margin-left: -10px;
+    
+}
+ 
+.btnDelete {
+    border:1px ;
+    border-radius: 20px;
+}
+
