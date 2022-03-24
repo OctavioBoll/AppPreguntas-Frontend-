@@ -1,5 +1,8 @@
 .card{
     background-color: rgba(23, 147, 147, 0.18);
+    display: flex;
+    min-width:333px;
+    width: 350px;
 }
 
 .spinner{

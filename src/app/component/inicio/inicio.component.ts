@@ -12,8 +12,4 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngOnChange(changes: SimpleChanges){
-    console.log(changes)
-  }
-
 }

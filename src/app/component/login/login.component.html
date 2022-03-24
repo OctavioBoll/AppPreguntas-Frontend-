@@ -1,13 +1,5 @@
 <div class="container d-flex justify-content-center ">
-    <div class="row mt-5">
-
-        <!-- 
-            [ngClass]="{'is-invalid': (formTopic.controls.topic.touched || submitted)  
-                        && formTopic.controls.topic.errors && formTopic.get('topic').invalid}"
-        
-        style="width: 400px; height: 350px;" 
-                    -->
-        
+    <div class="row mt-5">    
         <div class="col-12">
             <mat-spinner class="spinner" diameter:50 *ngIf="loading"></mat-spinner>
             <div class="card " *ngIf="!loading">

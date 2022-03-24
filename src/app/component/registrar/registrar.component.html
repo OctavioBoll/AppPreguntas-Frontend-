@@ -29,13 +29,10 @@
                         <button class="btn btn-primary" [disabled]="registrarForm.invalid" (click)="btnRegistrar()">Registrar</button>
                     </div>
                 </form>
-                    
-                    
                 </div>
             </div>
             <div *ngIf="errorMessage != ''">
                 <p class="text-danger">{{errorMessage}}</p>
-                
             </div>
         </div>
     </div>

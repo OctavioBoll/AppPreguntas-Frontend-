@@ -63,8 +63,7 @@ export class TopicComponent implements OnInit {
 
   ngOnInit(): void {
     this.initFormTopic();
-    //this.initFormTopic();
-    //this.initFormQuestions();
+  
     this.obtenerTopics();
   }
 
@@ -75,7 +74,7 @@ export class TopicComponent implements OnInit {
   initFormTopic() {
     this.formTopic = this.fbTopic.group({
       _id: new FormControl(''),
-      topic: new FormControl ('', [Validators.required, Validators.minLength(1), Validators.maxLength(30)]),
+      topic: new FormControl ('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
       questions: new FormArray([])
     })
     this.addQuestion()
@@ -85,8 +84,8 @@ export class TopicComponent implements OnInit {
 
   initFormQuestions(): FormGroup {
     return this.fbTopic.group({
-      title: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(30)]),
-      descripcion:new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(300)]) 
+      title: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(200)]),
+      descripcion:new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(800)]) 
     })
   }
 
@@ -191,7 +190,7 @@ export class TopicComponent implements OnInit {
   }
 
 
-  //------------------------------------ Preguntas ----------------------
+ 
 
 
   //_________________________ Funciones con formTopic _______________________________________
@@ -321,106 +320,6 @@ export class TopicComponent implements OnInit {
 
     this.openTemplate(contentUpdateQuestions)
   }
-
-
-  //_______________________________ Funciones con topicForm ____________________________________________
-
-  /** 
-    agregarPregunta(){
-  
-      const quest = this.topicForm.controls.questions as FormArray;
-      
-      this.questions.push(quest.value)
-  
-      this.topicForm = this.fbTopic.group({
-        user_id:this.listTopicSelect[0].user_id,
-        _id:this.listTopicSelect[0]._id,
-        topic:this.listTopicSelect[0].topic,
-        questions:[this.questions]
-      })
-      this.updateTopic()
-    }
-  
-  
-    updateTopic(){
-      this.loading = true
-      this._topicService.updateTopic(this.topicForm.value).subscribe(data =>{
-        this.loading = false
-        this.modalService.dismissAll()
-        this.obtenerTopics()
-        
-      },
-      error => {
-        this._snackBar.open("Error al Actualizar un Pregunta:" + error ,null,
-            {
-              duration:5000,
-              horizontalPosition:'center',
-              verticalPosition:'top',
-              panelClass: "red-snack-bar"
-            })
-            this.loading = false;
-          })
-    }
-  
-    
-    
-  
-    editarPregunta(){
-      for (let i = 0; i < this.questions.length; i++) {
-        if (this.questions[i]._id == this.questForm.value._id) {
-          this.questions.splice(i,1)
-          this.questions.push(this.questForm.value)
-          
-        }
-      }
-  
-      this.topicForm = this.fbTopic.group({
-        user_id:this.listTopicSelect[0].user_id,
-        _id:this.listTopicSelect[0]._id,
-        topic:this.listTopicSelect[0].topic,
-        questions:[this.questions]
-      })
-  
-      this.updateTopic()
-    }
-  
-    
-  
-    openEditQuest(contentUpdateQuestions,item){
-      this.questForm.setValue({
-        _id:item._id,
-        title:item.title,
-        descripcion:item.descripcion
-      })
-      this.openTemplate(contentUpdateQuestions)
-    }
-  
-    
-    
-  
-    
-  
-    eliminarQuestion(item){
-      
-      for (let i = 0; i < this.questions.length; i++) {
-        if (this.questions[i]._id == item._id) {
-          
-          this.questions.splice(i,1)
-        }
-      }
-      this.topicForm = this.fbTopic.group({
-        user_id:this.listTopicSelect[0].user_id,
-        _id:this.listTopicSelect[0]._id,
-        topic:this.listTopicSelect[0].topic,
-        questions:[this.questions]
-      })
-  
-  
-      this.updateTopic()
-      this.obtenerTopics()
-      this.openTopic(item)
-    }
-    */
 
   volverTopics() {
     this.mostrar = "T"
